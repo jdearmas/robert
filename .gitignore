@@ -1,0 +1,4 @@
+# gitignore: files and directories for git to ignore
+
+# developer documents
+docs/
