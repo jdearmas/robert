@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# arguments: data specific to the user
+
+
 NAME="Big Money"
 WEBSITE="https://idkmanigotfeelings.com"
 EMAIL="null@gmail.com"

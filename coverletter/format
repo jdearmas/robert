@@ -1,0 +1,144 @@
+#!/bin/sh
+
+# format: a collection of format strings for content-templating
+
+ESC0='\\\$1'
+ESC1='\\n[.j]'
+
+MACROS=`cat << EOF
+.de AD
+.  br
+.  ad $ESC0
+..
+.
+.de NA
+.  br
+.  na
+..
+. \n
+EOF
+`
+
+HEADER=`cat <<EOF
+.ps +2
+.vs 14
+\n
+EOF
+`
+
+FROM=`cat <<EOF
+.AD r
+.nr ad $ESC1
+%s 
+.br
+%s
+.br
+%s 
+.NA \n
+EOF
+`
+
+INREFERENCE=`cat <<EOF
+.AD r
+.nr ad $ESC1 
+.br
+In reference to: The \'%s\' Job Posting
+.NA \n
+EOF
+`
+
+STARTING=`cat <<EOF
+.sp 2
+To whom it may concern, \n
+.br\n
+\
+EOF
+`
+
+INTRO=`cat <<EOF
+My name is %s. I am a %s with a degree in %s.\n
+EOF
+`
+
+JOB=`cat <<EOF
+I become interested when I saw your posting for %s. I saw that I
+meet a majority of the job's requirements and that I'm a good fit for
+the position. \n
+EOF
+`
+
+RANGE=`cat <<EOF
+I have several years of experience in a wide range of
+disciplines - from %s, to %s, to %s. \n
+EOF
+`
+
+EXPERIENCE=`cat <<EOF
+My most relevent previous position was at the $LOCATION0. A
+subset of the $SUBSET. I led a small team where I
+developed %s. \n
+EOF
+`
+
+REQUIREMENTS=`cat <<EOF
+From your job posting, the position requires %s, %s, and
+%s, among other qualifications. \n
+EOF
+`
+
+ROVERLAP=`cat <<EOF
+From my experience in %s, I've developed %s. \n
+EOF
+`
+
+PREFERRED=`cat <<EOF
+The listing also mentioned a set of preferred, supplementary
+skills such as %s and %s. \n
+EOF
+`
+
+POVERLAP=`cat <<EOF
+From my experience in %s, I've learned about %s and %s. \n
+EOF
+`
+
+LEARN=`cat <<EOF
+Even though I am unfamiliar and have limited
+knowlegde of %s, I am a quick and eager learner. \n
+EOF
+`
+
+MARKET=`cat <<EOF
+That being said, I am interested in working for industries
+that make an impact in %s. \n
+EOF
+`
+
+ETHOS=`cat <<EOF
+With my willingness to learn and overall expertise, I
+am confident that I would make a fantastic addition
+to %s. \n
+EOF
+`
+
+
+FINDMYINFO=`cat <<EOF
+My resume will give you a supplemental understanding of my
+capabilities and qualifications. Please contact me if
+you have any questions.
+\n
+EOF
+`
+
+CLOSING=`cat <<EOF
+Sincerely,
+.PDFPIC -L signature.pdf
+%s
+.br
+%s
+.br
+%s
+.br
+%s \n
+EOF
+`
