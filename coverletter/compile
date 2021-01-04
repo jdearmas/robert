@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# compile: convert input into a document
+
+pic "$1" | tbl | eqn | groff -U -ms | ps2pdf - > "$2"
