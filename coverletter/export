@@ -1,0 +1,47 @@
+#!/bin/sh
+
+# export: printing the meta-coverletter
+
+. ./arguments
+. ./format
+
+printf "$MACROS"
+printf "$HEADER"
+printf "$FROM" "$ADDRESS0" "$ADDRESS1" "$DATE0"
+printf "$INREFERENCE" "$FULLJOBNAME"
+#printf "$TO"
+
+printf "\n"
+printf "$STARTING"
+
+printf "\t"
+printf "$INTRO" "$NAME" "$OCCUPATION" "$MAJOR" 
+printf "$REQUIREMENTS" "$REQUIRMENT0" "$REQUIRMENT1" "$REQUIRMENT2"
+printf "\n"
+
+
+printf "\t"
+printf "$ROVERLAP" "$RO0_CONTEXT" "$REQUIRMENT0"
+printf "$RO0"
+printf "\n\n"
+
+
+printf "\t"
+printf "$ROVERLAP" "$RO1_CONTEXT" "$REQUIRMENT1"
+printf "$RO1"
+printf "\n\n"
+
+
+printf "\t"
+printf "$ROVERLAP" "$RO2_CONTEXT" "$REQUIRMENT2"
+printf "$RO2"
+printf "\n\n"
+
+
+printf "\t"
+printf "$MARKET" "$MARKET0"
+printf "$ETHOS" "$COMPANY"
+printf "$FINDMYINFO"
+printf "\n"
+
+printf "$CLOSING" "$NAME" "$EMAIL" "$WEBSITE" "$PHONE"
